@@ -5,12 +5,22 @@ custom:
     webpackConfig: ./webpack.config.js
     includeModules: true
   defaultStage: dev
+  slack:
+    dev:
+      token: ${env:SLACK_API_TOKEN_DEV}
+      channel: ${env:SLACK_CHANNEL_DEV}
+      username: ${env:SLACK_USERNAME_DEV}
+    production:
+      token: ${env:SLACK_API_TOKEN_PROD}
+      channel: ${env:SLACK_CHANNEL_PROD}
+      username: ${env:SLACK_USERNAME_PROD}
   schedule:
     hello:
       dev: # スケジュールなし
       production: cron(0 16 * * ? *) # 毎日15時
 plugins:
   - serverless-webpack
+  - serverless-dotenv-plugin
 provider:
   name: aws
   runtime: nodejs12.x
@@ -22,6 +32,9 @@ provider:
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     STAGE: ${self:provider.stage}
+    SLACK_API_TOKEN: ${self:custom.slack.${self:provider.stage}.token}
+    SLACK_CHANNEL: ${self:custom.slack.${self:provider.stage}.channel}
+    SLACK_USERNAME: ${self:custom.slack.${self:provider.stage}.username}
 functions:
   hello:
     handler: handler.hello
