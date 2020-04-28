@@ -16,8 +16,10 @@ const pushMessage = async ({ text }) => {
   console.log({ result });
 };
 
+const message = '明日は休みだよ！残りの仕事も頑張ろう！';
+
 export const hello: APIGatewayProxyHandler = async () => {
-  pushMessage({ text: 'Hello' });
+  pushMessage({ text: message });
   return {
     statusCode: 200,
     body: JSON.stringify({ message: 'hello' }),
