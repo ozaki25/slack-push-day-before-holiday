@@ -6,7 +6,8 @@
   "scripts": {
     "invoke": "sls invoke local -f",
     "invoke:aws": "sls invoke -f",
-    "deploy": "sls deploy"
+    "deploy": "sls deploy",
+    "deploy:prod": "sls deploy --stage production"
   },
   "dependencies": {
     "@slack/web-api": "^5.8.0",
