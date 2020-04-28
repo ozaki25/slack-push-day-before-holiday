@@ -38,6 +38,6 @@ provider:
     SLACK_USERNAME: ${self:custom.slack.${self:provider.stage}.username}
 functions:
   noticeDayBeforeHoliday:
-    handler: handler.noticeDayBeforeHoliday
+    handler: src/handler.noticeDayBeforeHoliday
     events:
       - schedule: ${self:custom.schedule.noticeDayBeforeHoliday.${self:provider.stage}}

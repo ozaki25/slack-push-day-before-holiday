@@ -2,8 +2,8 @@ import * as dayjs from 'dayjs';
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import 'source-map-support/register';
 
-import { isHoliday } from './src/holidayUtil';
-import { pushMessage } from './src/slackApi';
+import { isHoliday } from './holidayUtil';
+import { pushMessage } from './slackApi';
 
 export const noticeDayBeforeHoliday: APIGatewayProxyHandler = async () => {
   const today = dayjs();
