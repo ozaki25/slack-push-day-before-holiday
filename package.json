@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@slack/web-api": "^5.8.0",
+    "dayjs": "^1.8.25",
     "node-fetch": "^2.6.0",
     "source-map-support": "^0.5.10"
   },
