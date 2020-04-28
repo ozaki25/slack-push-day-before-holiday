@@ -15,7 +15,7 @@ custom:
       channel: ${env:SLACK_CHANNEL_PROD}
       username: ${env:SLACK_USERNAME_PROD}
   schedule:
-    hello:
+    noticeDayBeforeHoliday:
       dev: # スケジュールなし
       production: cron(0 16 * * ? *) # 毎日15時
 plugins:
@@ -37,7 +37,7 @@ provider:
     SLACK_CHANNEL: ${self:custom.slack.${self:provider.stage}.channel}
     SLACK_USERNAME: ${self:custom.slack.${self:provider.stage}.username}
 functions:
-  hello:
-    handler: handler.hello
+  noticeDayBeforeHoliday:
+    handler: handler.noticeDayBeforeHoliday
     events:
-      - schedule: ${self:custom.schedule.hello.${self:provider.stage}}
+      - schedule: ${self:custom.schedule.noticeDayBeforeHoliday.${self:provider.stage}}

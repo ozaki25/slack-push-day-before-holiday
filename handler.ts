@@ -5,7 +5,7 @@ import 'source-map-support/register';
 import { isHoliday } from './src/holidayUtil';
 import { pushMessage } from './src/slackApi';
 
-export const hello: APIGatewayProxyHandler = async () => {
+export const noticeDayBeforeHoliday: APIGatewayProxyHandler = async () => {
   const today = dayjs();
   const tomorrow = today.add(1, 'day');
   console.log({ today: today.toJSON(), tomorrow: tomorrow.toJSON() });

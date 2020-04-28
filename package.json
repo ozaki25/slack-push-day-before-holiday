@@ -4,8 +4,8 @@
   "description": "Serverless webpack example using Typescript",
   "main": "handler.js",
   "scripts": {
-    "invoke": "sls invoke local -f",
-    "invoke:aws": "sls invoke -f",
+    "invoke": "sls invoke local -f noticeDayBeforeHoliday",
+    "invoke:aws": "sls invoke -f noticeDayBeforeHoliday",
     "deploy": "sls deploy",
     "deploy:prod": "sls deploy --stage production"
   },
