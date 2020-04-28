@@ -17,7 +17,7 @@ custom:
   schedule:
     noticeDayBeforeHoliday:
       dev: # スケジュールなし
-      production: cron(0 16 * * ? *) # 毎日15時
+      production: cron(0 3 * * ? *) # 毎日昼12時
 plugins:
   - serverless-webpack
   - serverless-dotenv-plugin
