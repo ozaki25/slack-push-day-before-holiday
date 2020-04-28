@@ -32,6 +32,7 @@ provider:
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     STAGE: ${self:provider.stage}
+    TZ: Asia/Tokyo
     SLACK_API_TOKEN: ${self:custom.slack.${self:provider.stage}.token}
     SLACK_CHANNEL: ${self:custom.slack.${self:provider.stage}.channel}
     SLACK_USERNAME: ${self:custom.slack.${self:provider.stage}.username}
