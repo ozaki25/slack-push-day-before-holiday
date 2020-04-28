@@ -47,8 +47,6 @@ const isHoliday = async (date: dayjs.Dayjs) => {
   return false;
 };
 
-const message = '明日は休みだよ！残りの仕事も頑張ろう！';
-
 export const hello: APIGatewayProxyHandler = async () => {
   const today = dayjs();
   const tomorrow = today.add(1, 'day');
@@ -61,9 +59,6 @@ export const hello: APIGatewayProxyHandler = async () => {
     return { statusCode: 200, body: "Let's work tomorrow" };
   }
 
-  pushMessage({ text: message });
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: 'hello' }),
-  };
+  await pushMessage({ text: '明日は休みだよ！残りの仕事も頑張ろう！' });
+  return { statusCode: 200, body: 'Tomorrow is Holiday!!!' };
 };
