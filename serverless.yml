@@ -18,6 +18,9 @@ custom:
     noticeDayBeforeHoliday:
       dev: # スケジュールなし
       production: cron(0 3 * * ? *) # 毎日昼12時
+    noticeDayBeforeMonday:
+      dev: # スケジュールなし
+      production: cron(0 10 * * ? *) # 毎日夜7時
 plugins:
   - serverless-webpack
   - serverless-dotenv-plugin
@@ -41,3 +44,7 @@ functions:
     handler: src/handler.noticeDayBeforeHoliday
     events:
       - schedule: ${self:custom.schedule.noticeDayBeforeHoliday.${self:provider.stage}}
+  noticeDayBeforeMonday:
+    handler: src/handler.noticeDayBeforeMonday
+    events:
+      - schedule: ${self:custom.schedule.noticeDayBeforeMonday.${self:provider.stage}}
